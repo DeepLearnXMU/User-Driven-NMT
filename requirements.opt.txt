@@ -1,0 +1,16 @@
+torch>=1.6.0
+cffi
+joblib
+numba==0.43.0
+llvmlite==0.32.1
+pyrouge
+sentencepiece>=0.1.94
+subword-nmt>=0.3.7
+torchtext==0.4.0
+future
+configargparse
+flask
+waitress
+pyonmttok>=1.22.*;platform_system=='Linux'
+pyyaml
+sklearn

@@ -1,0 +1,56 @@
+src_vocab: ../data/wmt17/zh-en.vocab.src
+tgt_vocab: ../data/wmt17/zh-en.vocab.tgt
+data:
+    corpus_1:
+        path_src: ../data/user/train.src
+        path_tgt: ../data/user/train.tgt
+    valid:
+        path_src: ../data/user/valid.src
+        path_tgt: ../data/user/valid.en
+
+reset_optim: states
+early_stopping: 5
+pool_factor: 10
+
+# save_model: onmt-runs/wmt17/models/zh-en
+save_checkpoint_steps: 50
+keep_checkpoint: 20
+seed: 3435
+train_steps: 186100
+valid_steps: 1000
+warmup_steps: 8000
+report_every: 50
+
+decoder_type: transformer
+encoder_type: transformer
+word_vec_size: 512
+rnn_size: 512
+layers: 6
+transformer_ff: 2048
+heads: 8
+
+accum_count: 4
+optim: adam
+adam_beta1: 0.9
+adam_beta2: 0.998
+decay_method: noam
+learning_rate: 2.0
+max_grad_norm: 0.0
+
+batch_size: 2048
+batch_type: tokens
+normalization: tokens
+dropout: 0.1
+label_smoothing: 0.1
+
+max_generator_batches: 4
+beam_size: 10
+alpha: 1.5
+
+param_init: 0.0
+param_init_glorot: 'true'
+position_encoding: 'true'
+
+world_size: 1
+gpu_ranks:
+- 0
